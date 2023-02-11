@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from sklearn.impute import KNNImputer
 
-@st.cache
+@st.cache_data
 def impute_missing_values(df, column, k):
     imputer = KNNImputer(n_neighbors=k)
     df[column] = imputer.fit_transform(df[[column]])
